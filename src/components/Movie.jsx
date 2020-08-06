@@ -13,7 +13,8 @@ export const Movie = ({ inputTitle, inputYear, inputGenre }) => {
                     <div>{movie.genres.map((genres) => `${genres}, `)}</div>
                     <h4>{movie.rating}</h4>
                     <h4>{movie.summary}</h4>
-                </div>)}
+                </div>
+            )}
         </div>
     )
 }
