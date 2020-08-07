@@ -1,5 +1,4 @@
 import React from 'react';
-import '../CSS/movie.css'
 export const Movie = ({ inputTitle, inputYear, inputGenre }) => {
 
     const data = inputTitle || inputYear || inputGenre;

@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import { useState } from 'react';
 import { Movie } from './Movie';
-const Search = () => {
+export const Search = () => {
     const [movieArray, setMovieArray] = useState([]);
     const URL = "http://localhost:6060/movie/";
 
@@ -108,4 +108,3 @@ const Search = () => {
         </div>
     )
 }
-export default Search;
