@@ -11,7 +11,10 @@ export const Movie = ({ inputTitle, inputYear, inputGenre }) => {
                     <Link to={{
                         pathname: `/movieInfo/:${movie.id}`,
                         state: {
+                            img: movie.medium_cover_image,
+                            title: movie.title,
                             desc: movie.summary,
+                            language: movie.language,
                         }
 
                     }}>
