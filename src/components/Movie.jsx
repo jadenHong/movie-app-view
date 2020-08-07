@@ -9,7 +9,7 @@ export const Movie = ({ inputTitle, inputYear, inputGenre }) => {
             {data.map((movie, index) =>
                 <div key={index}>
                     <Link to={{
-                        pathname: `./movieInfo/:${movie.id}`,
+                        pathname: `/movieInfo/:${movie.id}`,
                         state: {
                             desc: movie.summary,
                         }
