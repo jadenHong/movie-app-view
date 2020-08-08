@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import { useState } from 'react';
 import { Movie } from './Movie';
 export const Search = () => {
+    console.log('3');
     const [movieArray, setMovieArray] = useState([]);
     const URL = "http://localhost:6060/movie/";
 

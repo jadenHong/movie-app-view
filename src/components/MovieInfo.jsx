@@ -14,6 +14,7 @@ import React from 'react';
 import { useParams, useLocation, useHistory } from 'react-router-dom';
 
 export const MovieInfo = () => {
+    console.log('6');
     const param = useParams();
     const location = useLocation();
     const history = useHistory();

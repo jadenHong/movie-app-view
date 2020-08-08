@@ -5,3 +5,4 @@ export * from './Movie2';
 export * from './Routes';
 export * from './Movie3';
 export * from './MovieInfo';
+export * from './Main';

@@ -2,6 +2,7 @@ import React from 'react';
 import { data } from '../data/movie2';
 
 export const Movie2 = () => {
+    console.log('4');
     const moviesData = data.movies;
     return (
         <div className="movie-data">

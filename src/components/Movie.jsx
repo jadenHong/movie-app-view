@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 export const Movie = ({ inputTitle, inputYear, inputGenre }) => {
-
+    console.log('4');
     const data = inputTitle || inputYear || inputGenre;
 
     return (

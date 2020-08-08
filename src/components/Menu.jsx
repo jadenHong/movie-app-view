@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 export const Menu = ({ location }) => {
+    console.log('1');
     return (
         <div className="navbar">
             <div className="navbar-logo-title">
