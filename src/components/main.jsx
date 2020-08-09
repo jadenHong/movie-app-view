@@ -14,7 +14,7 @@ const Main = () => {
         console.log(storageValue);
         if (storageValue) {
             setHasLocalStorage(true);
-            setName(storageValue);
+            // setName(storageValue);
         }
     }, [])
 
@@ -37,8 +37,6 @@ const Main = () => {
     }, [])
 
 
-
-
     const RandomNum = () => {
         setRandomNum(parseInt(Math.random() * 3 + 1))
     }
@@ -47,9 +45,13 @@ const Main = () => {
         e.preventDefault();
 
         if (name.length > 0) {
+            console.log(name);
             localStorage.setItem(USER_LS, name);
+            // const storageValue = localStorage.getItem(USER_LS);
+            setHasLocalStorage(true);
         }
     }
+
 
     return (
         <div className="main-screen" style={{ backgroundImage: `url(${require(`../images/${randomNum}.jpg`)})` }}>
