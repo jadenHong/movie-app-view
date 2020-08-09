@@ -18,7 +18,7 @@ export const MovieList = () => {
     useEffect(() => {
         console.log('local 저장');
         saveToLocal(movieList);
-        console.log(movie);
+        // console.log(movie);
     }, [movieList])
 
 
@@ -73,7 +73,14 @@ export const MovieList = () => {
                 <input type="text" placeholder="Write a movie to watch" onChange={handleChange} value={inputValue} />
             </form>
             <ul className="movie-list">
-                {movieList.map((movie, index) => <li key={index} id={movie.id}><button onClick={handleDelete} id={movie.id}>❌</button>{movie.title}</li>)}
+                {movieList.map((movie, index) =>
+                    <li key={index} id={movie.id}>
+                        <button onClick={handleDelete} id={movie.id}>
+                            <span role="img" aria-label="cancle">❌</span>
+                        </button>
+                        {movie.title}
+                    </li>
+                )}
 
             </ul>
         </Fragment>
