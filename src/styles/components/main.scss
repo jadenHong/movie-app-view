@@ -1,12 +1,7 @@
 @import '../constants/sizing';
 @import '../constants/colours.scss';
 
-.welcome-msg{
-    display: none;
-}
-.showing{
-    display: block;
-}
+
 .main-screen{
     display: flex;
     flex-direction: column;
