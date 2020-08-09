@@ -3,6 +3,6 @@ export * from './Search';
 export * from './Menu';
 export * from './Movie2';
 export * from './Routes';
-export * from './Movie3';
+export * from './MovieList';
 export * from './MovieInfo';
 export * from './Main';

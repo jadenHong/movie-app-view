@@ -13,7 +13,7 @@ export const Menu = ({ location }) => {
                 <ul>
                     <li><Link to="/search" className='link'>Search</Link></li>
                     <li><Link to="/movie2" className='link'>More Movies</Link></li>
-                    <li><Link to="/movie3" className='link'>React</Link></li>
+                    <li><Link to="/movieList" className='link'>My Movie List</Link></li>
                 </ul>
             </div>
         </div>

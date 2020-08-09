@@ -1,4 +1,4 @@
-import { Movie2, Movie3, Search, Menu, MovieInfo } from '.'
+import { Movie2, MovieList, Search, Menu, MovieInfo } from '.'
 import React from 'react';
 import Main from './Main';
 import { BrowserRouter, Route } from 'react-router-dom';
@@ -11,7 +11,7 @@ export default () => {
             <Route exact path="/main" component={Main} />
             <Route path="/search" component={Search} />
             <Route path="/movie2" component={Movie2} />
-            <Route path="/movie3" component={Movie3} />
+            <Route path="/movieList" component={MovieList} />
             <Route path={"/movieInfo/:movieID"} component={MovieInfo} />
 
         </BrowserRouter>
