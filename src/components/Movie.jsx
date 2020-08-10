@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Rotate from 'react-reveal/Rotate';
-import Slider from "react-slick";
 
 export const Movie = ({ inputTitle, inputYear, inputGenre }) => {
     console.log('4');
@@ -18,7 +17,7 @@ export const Movie = ({ inputTitle, inputYear, inputGenre }) => {
 
         <div className="display-movies">
 
-            {data.map((movie, index) => <Slider {...settings}>
+            {data.map((movie, index) =>
                 <Rotate top left>
                     <div key={index} className="movie-poster">
                         <Link to={{
@@ -37,7 +36,7 @@ export const Movie = ({ inputTitle, inputYear, inputGenre }) => {
                         <div>{movie.genres.map((genres) => `${genres}, `)}</div>
                         <h4>{movie.rating}</h4>
                     </div>
-                </Rotate></Slider>
+                </Rotate>
             )
             }
 
