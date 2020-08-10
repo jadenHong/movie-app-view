@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Zoom from 'react-reveal/Zoom';
 
 const Main = () => {
     const USER_LS = "currentUser";
@@ -6,6 +7,12 @@ const Main = () => {
     const [timeString, setTimeString] = useState('');
     const [randomNum, setRandomNum] = useState(parseInt(Math.random() * 3 + 1));
     const [hasLocalStorage, setHasLocalStorage] = useState(false);
+
+    const [coordsInfo, setCoordsInfo] = useState({ latitude: 0, longitude: 0 });
+    const [hasWeatherInfoLS, setHasWeatherInfoLs] = useState(false);
+    const [weather, setWeather] = useState('');
+    const API_WEATHER_KEY = '015408c7b2ff4cc5a6b9d6332e145cf6';
+    const COORDS = 'coords';
 
 
     useEffect(() => {
@@ -21,8 +28,8 @@ const Main = () => {
     useEffect(() => {//내부에서 didmount, update 가 동작, return 함수에는 unmount 가 동작!!!!!!!!
         const interval = setInterval(() => {
             const now = new Date();
-            const date = now.toLocaleDateString('ko-KR');
-            const time = now.toLocaleTimeString('ko-KR');
+            const date = now.toLocaleDateString(); //const date = now.toLocaleDateString('ko-KR'); 이렇게 하면 한국어로됨
+            const time = now.toLocaleTimeString(); //const time = now.toLocaleTimeString('ko-KR');
             setTimeString(`${date} ${time}`);
         }, 1000);
         // loadName();
@@ -36,6 +43,22 @@ const Main = () => {
         RandomNum();
     }, [])
 
+    useEffect(() => {
+        saveCoords(coordsInfo);
+        loadData();
+    }, [coordsInfo])
+
+    const loadData = () => {
+        fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${coordsInfo.latitude}&lon=${coordsInfo.longitude}&appid=${API_WEATHER_KEY}&units=metric`)
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data);
+                const weatherTemp = data.main.temp;
+                const place = data.name;
+                const clouds = data.weather[0].description;
+                return setWeather(`${place}, ${weatherTemp} ℃, ${clouds}`);
+            })
+    }
 
     const RandomNum = () => {
         setRandomNum(parseInt(Math.random() * 3 + 1))
@@ -52,17 +75,39 @@ const Main = () => {
         }
     }
 
+    const handleSuccess = (position) => {
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+        console.log(latitude)
+        console.log(hasWeatherInfoLS);
+        setCoordsInfo({ latitude: latitude, longitude: longitude })
+
+    }
+
+    const handleError = () => {
+        console.log('Can not get Geo Location');
+    }
+
+    const saveCoords = (coordsObj) => {
+        localStorage.setItem(COORDS, JSON.stringify(coordsObj));
+        setHasWeatherInfoLs(true);
+    }
 
     return (
-        <div className="main-screen" style={{ backgroundImage: `url(${require(`../images/${randomNum}.jpg`)})` }}>
-            <h1 className="current-time">
-                {timeString}
-            </h1>
-            {!hasLocalStorage && <form onSubmit={handleClick} className='welcome-form'>
-                <input type="text" placeholder="Write Your Name" className="input-name" onChange={e => setName(e.target.value)} />
-            </form>}
-            {hasLocalStorage && <h2 className="welcome-msg">Hello {name} ! </h2>}
-        </div>
+        <Zoom left>
+            <div className="main-screen" style={{ backgroundImage: `url(${require(`../images/${randomNum}.jpg`)})` }}>
+
+                {hasWeatherInfoLS ? <span className="js-weather">{weather}</span> : navigator.geolocation.getCurrentPosition(handleSuccess, handleError)}
+
+                <h1 className="current-time">
+                    {timeString}
+                </h1>
+                {!hasLocalStorage && <form onSubmit={handleClick} className='welcome-form'>
+                    <input type="text" placeholder="Write Your Name" className="input-name" onChange={e => setName(e.target.value)} />
+                </form>}
+                {hasLocalStorage && <h2 className="welcome-msg">Hello {name} ! </h2>}
+            </div>
+        </Zoom>
     )
 }
 export default Main;

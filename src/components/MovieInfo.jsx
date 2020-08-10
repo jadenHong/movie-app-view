@@ -28,6 +28,7 @@ export const MovieInfo = () => {
         <div className="movie-detail">
             <img src={state.img} alt="poster" />
             <h3>Title</h3> {state.title}
+            <h3>Genre</h3> {state.genres}
             <h4>Description</h4> {state.desc}
             <h4>Language</h4> {state.language}
         </div>

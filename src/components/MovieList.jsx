@@ -1,4 +1,5 @@
-import React, { Fragment, useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import Rotate from 'react-reveal/Rotate';
 
 export const MovieList = () => {
     console.log('5');
@@ -70,22 +71,27 @@ export const MovieList = () => {
 
 
     return (
-        <Fragment>
-            <form className="mymovie-form" onSubmit={handleSubmit}>
-                <input type="text" placeholder="Write a movie to watch" onChange={handleChange} value={inputValue} ref={focusInput} />
-            </form>
-            <ul className="movie-list">
-                {movieList.map((movie, index) =>
-                    <li key={index}>
-                        <button onClick={handleDelete} id={movie.id}>
-                            <span role="img" aria-label="cancel" style={{ pointerEvents: 'none' }}>❌</span>
-                        </button>
-                        {movie.title}
-                    </li>
-                )}
+        <Rotate top left>
+            <div className="movieList-section">
+                <h1>Movie Lists</h1>
+                <form className="mymovie-form" onSubmit={handleSubmit}>
+                    <input type="text" placeholder="Write a movie to watch" onChange={handleChange} value={inputValue} ref={focusInput} />
+                </form>
+                <ul className="movie-list">
+                    {movieList.map((movie, index) =>
+                        <li key={index}>
+                            <i class="far fa-square"></i>
 
-            </ul>
-        </Fragment>
+                            {movie.title}
+                            <button onClick={handleDelete} id={movie.id}>
+                                <span role="img" aria-label="cancel" style={{ pointerEvents: 'none' }}>❌</span>
+                            </button>
+                        </li>
+                    )}
+
+                </ul>
+            </div>
+        </Rotate>
     )
 }
 

@@ -2,9 +2,11 @@
 @import '../constants/sizing.scss';
 
 .display-movies{
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-    background-color: rgb(97, 95, 92);
-    color: white;
+    background-color: rgb(255, 255, 255);
+    color: black;
+    padding: 20px;
+
+    .movie-poster{
+        padding: 10px;
+    }
 }
