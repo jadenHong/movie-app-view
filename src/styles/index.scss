@@ -1,7 +1,15 @@
 @import './components/menu';
 @import './components/movie';
 @import './components//main';
+@import './components/search.scss';
+
 *{
   margin: 0;
   padding: 0;
+}
+
+html,
+body,
+#root {
+  height: 100%;
 }

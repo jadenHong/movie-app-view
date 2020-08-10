@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import { useState } from 'react';
 import { Movie } from './Movie';
+
 export const Search = () => {
     console.log('3');
     const [movieArray, setMovieArray] = useState([]);
@@ -91,19 +92,21 @@ export const Search = () => {
     // variableForX = 10
 
     return (
-        <div>
-            <h3>Search Menu</h3>
-            <div className="search-bar">
-                <label>Title: </label>
-                <input type="text" onChange={titleChange} ref={searchInput} />
-            </div>
-            <div className="search-bar">
-                <label>Year: </label>
-                <input type="text" onChange={yearChange} />
-            </div>
-            <div className="search-bar">
-                <label>Genre: </label>
-                <input type="text" onChange={genreChange} />
+        <div className="search-section">
+            <div className="search-movies">
+                <h3>Search Menu</h3>
+                <div className="search-bar">
+                    <label>Title: </label>
+                    <input type="text" onChange={titleChange} ref={searchInput} />
+                </div>
+                <div className="search-bar">
+                    <label>Year: </label>
+                    <input type="text" onChange={yearChange} />
+                </div>
+                <div className="search-bar">
+                    <label>Genre: </label>
+                    <input type="text" onChange={genreChange} />
+                </div>
             </div>
             <Movie default1={movieArray} inputTitle={movieArray} inputYear={movieArray} inputGenre={movieArray} />
         </div>

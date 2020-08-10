@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { Fragment, useState, useEffect, useRef } from 'react';
 
 export const MovieList = () => {
     console.log('5');
@@ -9,15 +9,20 @@ export const MovieList = () => {
         title: '',
     });
     const [inputValue, setInputValue] = useState('');
+    const focusInput = useRef();
+
+
 
     useEffect(() => {
         console.log('data load')
         loadList();
+        focusInput.current.focus();
     }, []);
 
     useEffect(() => {
         console.log('local 저장');
         saveToLocal(movieList);
+        focusInput.current.focus();
         // console.log(movie);
     }, [movieList])
 
@@ -33,13 +38,8 @@ export const MovieList = () => {
 
     const handleDelete = (e) => {
         console.log(e.target);
-        const listNode = e.target.parentNode;
-        // console.log(listNode.id);
-        // console.log(movieList.filter((movie) => {
-        //     return movie.id !== parseInt(listNode.id)
-        // }));
         const newMovieList = movieList.filter((movie) => {
-            return movie.id !== parseInt(listNode.id)
+            return movie.id !== parseInt(e.target.id)
         });
         setMovieList(newMovieList);
     }
@@ -67,16 +67,18 @@ export const MovieList = () => {
 
     }
 
+
+
     return (
         <Fragment>
             <form className="mymovie-form" onSubmit={handleSubmit}>
-                <input type="text" placeholder="Write a movie to watch" onChange={handleChange} value={inputValue} />
+                <input type="text" placeholder="Write a movie to watch" onChange={handleChange} value={inputValue} ref={focusInput} />
             </form>
             <ul className="movie-list">
                 {movieList.map((movie, index) =>
-                    <li key={index} id={movie.id}>
+                    <li key={index}>
                         <button onClick={handleDelete} id={movie.id}>
-                            <span role="img" aria-label="cancle">❌</span>
+                            <span role="img" aria-label="cancel" style={{ pointerEvents: 'none' }}>❌</span>
                         </button>
                         {movie.title}
                     </li>
