@@ -44,10 +44,6 @@ const Main = () => {
 
     useEffect(() => {
         RandomNum();
-    }, [])
-
-    useEffect(() => {
-
         // set loading flag on render
         setIsLoading(true);
 
