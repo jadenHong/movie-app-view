@@ -8,8 +8,6 @@ const Main = () => {
     const [randomNum, setRandomNum] = useState(parseInt(Math.random() * 3 + 1));
     const [hasLocalStorage, setHasLocalStorage] = useState(false);
 
-    const [coordsInfo, setCoordsInfo] = useState({ latitude: 0, longitude: 0 });
-
     const [isLoading, setIsLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState();
 
@@ -43,15 +41,13 @@ const Main = () => {
     }, []);
 
     useEffect(() => {
-        RandomNum();
+        setRandomNum(parseInt(Math.random() * 3 + 1))
         // set loading flag on render
         setIsLoading(true);
 
         // load location info
         navigator.geolocation.getCurrentPosition(async position => {
-            const latitude = position.coords.latitude;
-            const longitude = position.coords.longitude;
-            setCoordsInfo({ latitude, longitude });
+            const { latitude, longitude } = position.coords;
             const { place, weatherTemp, clouds } = await loadData(latitude, longitude);
             setWeather(`${place} ${weatherTemp} ${clouds}`);
             setIsLoading(false);
@@ -73,10 +69,6 @@ const Main = () => {
             console.error(err);
             return err;
         }
-    }
-
-    const RandomNum = () => {
-        setRandomNum(parseInt(Math.random() * 3 + 1))
     }
 
     const handleClick = (e) => {
