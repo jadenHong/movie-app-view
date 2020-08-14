@@ -3,6 +3,7 @@ import { data } from '../data/movie2';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { EffectCoverflow, Navigation, Pagination } from 'swiper';
 import LightSpeed from 'react-reveal/LightSpeed';
+// import { Notification } from './ListEdit';
 
 SwiperCore.use([EffectCoverflow, Navigation, Pagination]);
 export const Movie2 = () => {

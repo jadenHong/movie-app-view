@@ -15,7 +15,7 @@ export default () => {
             <Route path={"/movieInfo/:movieID"} component={MovieInfo} />
             <Route path={"/bulletin"} component={Bulletin} />
             <Route path={"/boardList"} component={BoardList} />
-            <Route path={"/listEdit"} component={ListEdit} />
+            <Route path={"/editList/:listID"} component={ListEdit} />
 
         </BrowserRouter>
     )
