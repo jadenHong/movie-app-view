@@ -80,7 +80,7 @@ export const MovieList = () => {
                 <ul className="movie-list">
                     {movieList.map((movie, index) =>
                         <li key={index}>
-                            <i class="far fa-square"></i>
+                            <i className="far fa-square"></i>
 
                             {movie.title}
                             <button onClick={handleDelete} id={movie.id}>

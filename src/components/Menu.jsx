@@ -14,6 +14,7 @@ export const Menu = ({ location }) => {
                     <li><Link to="/search" className='link'>Search</Link></li>
                     <li><Link to="/movie2" className='link'>More Movies</Link></li>
                     <li><Link to="/movieList" className='link'>My Movie List</Link></li>
+                    <li><Link to="/bulletin" className='link'>Bulletin</Link></li>
                 </ul>
             </div>
         </div>

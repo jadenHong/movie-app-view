@@ -6,3 +6,7 @@ export * from './Routes';
 export * from './MovieList';
 export * from './MovieInfo';
 export * from './Main';
+export * from './Bulletin';
+export * from './BoardList';
+export * from './ListDetail';
+export * from './ListEdit';
