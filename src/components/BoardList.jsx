@@ -23,12 +23,16 @@ export const BoardList = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const URL = '';
+        const URL = 'http://localhost:7777/movie/search/';
+        console.log(URL + userInput)
+        fetch(URL + userInput)
+            .then((response) => response.json())
+            .then((data) => setListInfo(data))
     }
 
     const handleChange = (e) => {
         const newInput = e.target.value;
-        console.log(newInput);
+        setuserInput(newInput);
     }
 
 
