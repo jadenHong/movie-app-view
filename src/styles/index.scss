@@ -1,10 +1,13 @@
 @import './components/menu';
 @import './components/movie';
-@import './components//main';
+@import './components/main';
 @import './components/search.scss';
-@import './components//movie2.scss';
-@import './components//movieList.scss';
+@import './components/movie2.scss';
+@import './components/movieList.scss';
 @import './components/notification';
+@import './components/bulletin.scss';
+@import './components/boardlist.scss';
+@import './components/listEdit.scss';
 
 *{
   margin: 0;

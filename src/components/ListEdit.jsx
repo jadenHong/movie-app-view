@@ -45,19 +45,25 @@ export const ListEdit = () => {
     }
 
     return (
-        <div>
+        <div className="edit-section">
+            <h2>Bulletin</h2>
             <form onSubmit={handleUpdate}>
-                <label>Title:
-            <input type="text" defaultValue={title} onChange={handleChange} name="title" />
-                </label>
-                <label>Description:
-            <input type="text" defaultValue={description} onChange={handleChange} name="description" />
-                </label>
-                <input type="submit" value="Update" />
+                <label>Title</label>
+                <input type="text" defaultValue={title} onChange={handleChange} name="title" />
+                <label>Description</label>
+                <input type="text" defaultValue={description} onChange={handleChange} name="description" />
+
+                <div className="edit-buttons">
+                    <input type="submit" value="Update" className="button updateBtn" />
+                    <button onClick={() => handleDelete(id)} className="button deleteBtn">Delete</button>
+                    <button className="button listBtn">
+                        <Link to="/boardList" className="list-link">List</Link>
+                    </button>
+                    {clicked > 0 && <Notification duration={2} message="Processing Successed .." />}
+
+                </div>
+
             </form>
-            <button onClick={() => handleDelete(id)}>Delete</button>
-            <Link to="/boardList">List</Link>
-            {clicked > 0 && <Notification duration={2} message="success" />}
         </div>
     )
 }

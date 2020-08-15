@@ -13,24 +13,26 @@ export const ListDetail = ({ detailInfo }) => {
                 detailInfo ?
 
                     <div className="detail">
-                        < div > <h3>Title: </h3>{detailInfo.title}</div >
-                        <div><h3>Description: </h3>{detailInfo.description}</div>
-                        <div><h3>Created: </h3>{detailInfo.created}</div>
-                        <Link to={{
-                            pathname: `/editList/${detailInfo.id}`,
-                            state: {
-                                id: detailInfo.id,
-                                title: detailInfo.title,
-                                description: detailInfo.description,
-                                created: detailInfo.created,
+                        < div > <h3>Title</h3><span className="result">{detailInfo.title}</span></div >
+                        <div><h3>Description</h3><span className="result">{detailInfo.description}</span></div>
+                        <div><h3>Created</h3><span className="result">{detailInfo.created}</span></div>
+                        <div className="edit-button">
+                            <Link to={{
+                                pathname: `/editList/${detailInfo.id}`,
+                                state: {
+                                    id: detailInfo.id,
+                                    title: detailInfo.title,
+                                    description: detailInfo.description,
+                                    created: detailInfo.created,
 
-                            }
-                        }}>Edit</Link>
+                                }
+                            }} className="edit-link">Edit</Link>
+                        </div>
                     </div >
 
                     :
 
-                    <div>
+                    <div className="before-select">
                         <h4>Please click on a List</h4>
                     </div>
 

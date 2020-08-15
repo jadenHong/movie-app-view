@@ -49,24 +49,28 @@ export const BoardList = () => {
 
     return (
 
-        <div>
-            <form onSubmit={handleSubmit}>
-                <input type="text" onChange={handleChange} />
-                <button type="submit">Search</button>
+        <div className="board-list">
+            <form onSubmit={handleSubmit} className="search-from">
+                <input type="text" onChange={handleChange} className="search-input" />
+                <button type="submit" className="search-button">Search</button>
             </form>
-            <h3>List</h3>
+
             <div className="titles">
-                {listInfo.map((list, index) => {
-                    const { id, title } = list;
-                    return (
-                        <div key={index}>
-                            <button type="button" onClick={() => handleListBtn(id)}>{title}</button>
-                        </div>
-                    )
-                })}
+                <div className="title-list">
+                    <h3>List</h3>
+                    {listInfo.map((list, index) => {
+                        const { id, title } = list;
+                        return (
+                            <div key={index}>
+                                <div type="button" onClick={() => handleListBtn(id)} className="title-button">{title}</div>
+                            </div>
+                        )
+                    })}
+                </div>
+                <ListDetail detailInfo={clieckedItem} />
             </div>
 
-            <ListDetail detailInfo={clieckedItem} />
+
         </div>
     )
 }
