@@ -32,10 +32,6 @@ export const Search = () => {
         } else {
             const newInputTitle = e.target.value;
             const path = `${URL}findMoviesByTitle/${newInputTitle}`;
-            // fetch(path)
-            //   .then((response) => response.json())
-            //   .then((data) => setMovieArray(data))
-            //   .catch(() => console.log('er ror'));
             try {
                 const response = await fetch(path);
                 const data = await response.json();
@@ -52,10 +48,6 @@ export const Search = () => {
         } else {
             const newInputYear = e.target.value;
             const path = `${URL}findMoviesByYear/${newInputYear}`;
-            // fetch(path)
-            //   .then((response) => response.json())
-            //   .then((data) => setMovieArray(data));
-
             try {
                 const response = await fetch(path);
                 const data = await response.json();
@@ -68,13 +60,13 @@ export const Search = () => {
 
 
 
-    const genreChange = (e) => {
+    const genreChange = async (e) => {
         const newInputGenre = e.target.value;
         const path = `${URL}findMoviesByGenre/${newInputGenre}`;
 
-        fetch(path)
-            .then((response) => { return response.json() })
-            .then((data) => setMovieArray(data));
+        const response = await fetch(path);
+        const data = await response.json();
+        await setMovieArray(data);
         console.log(movieArray);
 
     }

@@ -9,15 +9,16 @@ export const Bulletin = () => {
     });
     const [submitState, setSubmitState] = useState(false);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         console.log(boardInfo);
         const URL = "http://localhost:7777/movie/board/";
-        fetch(URL, {
+        await fetch(URL, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(boardInfo),
-        }).then(setSubmitState(true));
+        })
+        await setSubmitState(true)
     };
     const handleChange = (e) => {
         // console.dir(e.target);

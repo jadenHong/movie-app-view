@@ -28,21 +28,21 @@ export const ListEdit = () => {
 
     }
 
-    const handleUpdate = (e) => {
+    const handleUpdate = async (e) => {
         e.preventDefault();
         const URL = 'http://localhost:7777/movie/updateData';
-        fetch(URL, {
+        await fetch(URL, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(newData),
-        })
-            .then(setclicked(1))
+        });
+        setclicked(1);
     }
 
-    const handleDelete = (id) => {
+    const handleDelete = async (id) => {
         const URL = `http://localhost:7777/movie/deleteData/`;
         console.log(URL + id);
-        fetch(URL + id)
+        await fetch(URL + id)
     }
 
     return (

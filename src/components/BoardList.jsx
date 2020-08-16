@@ -15,20 +15,20 @@ export const BoardList = () => {
         console.log(clieckedItem);
     }, [clieckedItem]);
 
-    const getAllFromDB = () => {
+    const getAllFromDB = async () => {
         const URL = 'http://localhost:7777/movie/list';
-        fetch(URL)
-            .then((response) => response.json())
-            .then((data) => setListInfo(data))
+        const response = await fetch(URL);
+        const data = await response.json();
+        setListInfo(data);
     }
 
-    const handleClick = (e) => {
+    const handleClick = async (e) => {
         e.preventDefault();
         const URL = 'http://localhost:7777/movie/search/';
-        console.log(URL + userInput)
-        fetch(URL + userInput)
-            .then((response) => response.json())
-            .then((data) => setListInfo(data))
+        // console.log(URL + userInput)
+        const response = await fetch(URL + userInput);
+        const data = await response.json();
+        setListInfo(data);
     }
 
     const handleChange = (e) => {
@@ -38,13 +38,12 @@ export const BoardList = () => {
 
 
 
-    const handleListBtn = (id) => {
+    const handleListBtn = async (id) => {
 
         const URL = `http://localhost:7777/movie/clickedData/`;
-        fetch(URL + id)
-            .then((response) => response.json())
-            .then((data) =>
-                setClickedItem(data))
+        const response = await fetch(URL + id);
+        const data = await response.json();
+        setClickedItem(data);
 
     }
 
@@ -57,6 +56,7 @@ export const BoardList = () => {
             <div>
                 <button type="submit" className="search-button" onClick={handleClick}>Search</button>
                 <Link to="/bulletin" className="add-button">Add</Link>
+                <button className="show-allList" onClick={getAllFromDB}>Show All</button>
             </div>
 
             <div className="titles">
