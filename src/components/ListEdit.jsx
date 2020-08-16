@@ -12,6 +12,7 @@ export const ListEdit = () => {
     const { id, title, description, created } = state;
     const [newData, setNewData] = useState();
     const [clicked, setclicked] = useState(0);
+
     useEffect(() => {
         console.log(newData);
     }, [])
@@ -72,14 +73,6 @@ export const Notification = ({ duration, message }) => {
     const [show, setShow] = useState(false);
 
     useEffect(() => {
-        // 이게 좀 복잡하면 따로 슬립 함수 만들어서 이렇게
-        //   const sleep = (ms) => new Promise(r => setTimeout(r, ms));
-        // sleep(150).then(() => {
-        //   setShow(true)
-        //   sleep(duration * 1000).then(() => {
-        //     setShow(false);
-        //   })
-        // })
 
         //이걸가지고 IIFE (immediately invoked function expression) 한다.
         // 원래 함수를 만들어 변수명정해주고 그걸 콜을 해줘야하는데 이렇게 짜면 이안에있는게 바로그냥실행됨

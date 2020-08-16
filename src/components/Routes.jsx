@@ -8,7 +8,7 @@ export default () => {
     return (
         <BrowserRouter>
             <Menu />
-            <Route exact path="/main" component={Main} />
+            <Route exact path="/" component={Main} />
             <Route path="/search" component={Search} />
             <Route path="/movie2" component={Movie2} />
             <Route path="/movieList" component={MovieList} />

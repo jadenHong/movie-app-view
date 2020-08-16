@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ListDetail } from './ListDetail';
+import { Link } from 'react-router-dom';
 
 export const BoardList = () => {
     const [listInfo, setListInfo] = useState([]);
@@ -21,7 +22,7 @@ export const BoardList = () => {
             .then((data) => setListInfo(data))
     }
 
-    const handleSubmit = (e) => {
+    const handleClick = (e) => {
         e.preventDefault();
         const URL = 'http://localhost:7777/movie/search/';
         console.log(URL + userInput)
@@ -50,10 +51,13 @@ export const BoardList = () => {
     return (
 
         <div className="board-list">
-            <form onSubmit={handleSubmit} className="search-from">
+            <div className="search-from">
                 <input type="text" onChange={handleChange} className="search-input" />
-                <button type="submit" className="search-button">Search</button>
-            </form>
+            </div>
+            <div>
+                <button type="submit" className="search-button" onClick={handleClick}>Search</button>
+                <Link to="/bulletin" className="add-button">Add</Link>
+            </div>
 
             <div className="titles">
                 <div className="title-list">

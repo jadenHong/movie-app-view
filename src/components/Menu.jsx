@@ -7,7 +7,7 @@ export const Menu = ({ location }) => {
         <div className="navbar">
             <div className="navbar-logo-title">
                 <i className="fas fa-video"></i>
-                <h2><Link to="/main" className='link'>Mflix</Link></h2>
+                <h2><Link to="/" className='link'>Mflix</Link></h2>
             </div>
             <div className="navbar-menu">
                 <ul>
