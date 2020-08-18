@@ -62,7 +62,7 @@ export const SignUp = () => {
         <div className="signup-page">
             {usernameMsg.status !== 200 || usernameMsg.status === 0 ? (
                 <div className="signup-section">
-                    <div>
+                    <div className="signup-input">
                         <h2>New User</h2>
                         <label>User Name</label>
                         <input

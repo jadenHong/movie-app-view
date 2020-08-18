@@ -3,9 +3,14 @@
     flex-direction: column;
     align-items: center;
     margin-top: 60px;
+.signup-input{
+    display: flex;
+    flex-direction: column;
+}
     h2{
         font-size: 60px;
     }
+    
     label{
         font-size: 25px;
     }
